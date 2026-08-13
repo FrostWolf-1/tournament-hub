@@ -1,0 +1,10 @@
+{
+    "name": "Tournament Hub",
+    "short_name": "Tournament Hub",
+    "description": "Personal gaming tournament manager",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#0b0d11",
+    "theme_color": "#0b0d11",
+    "orientation": "portrait"
+}

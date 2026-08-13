@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0b0d11"
+    >
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <title>Tournament Hub</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0b0d11;
+            color: #f1f2f4;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+
+        /* NAVBAR */
+
+        .navbar {
+            height: 64px;
+            padding: 0 22px;
+
+            border-bottom: 1px solid #242830;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: sticky;
+            top: 0;
+
+            background: #0b0d11;
+
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-box {
+            width: 32px;
+            height: 32px;
+
+            border: 1px solid #353a44;
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #15181e;
+
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .logo-sub {
+            color: #666c76;
+            font-size: 9px;
+            margin-top: 2px;
+        }
+
+
+        /* MAIN */
+
+        main {
+            width: 100%;
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding: 40px 20px 70px;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding-bottom: 35px;
+
+            border-bottom: 1px solid #242830;
+        }
+
+        .small-title {
+            color: #656b75;
+
+            font-size: 9px;
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 8px;
+        }
+
+        .hero h1 {
+            margin: 0;
+
+            font-size: 29px;
+
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            margin: 8px 0 0;
+
+            color: #777d87;
+
+            font-size: 11px;
+        }
+
+        .add-btn {
+            background: #171a20;
+
+            border: 1px solid #3a3f49;
+
+            border-radius: 8px;
+
+            color: #f2f3f5;
+
+            padding: 11px 15px;
+
+            font-size: 11px;
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+        .add-btn:hover {
+            background: #20242b;
+        }
+
+
+        /* SECTION */
+
+        .section {
+            margin-top: 35px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 {
+            margin: 0;
+
+            font-size: 15px;
+        }
+
+        .section-header p {
+            margin: 5px 0 0;
+
+            color: #6e747e;
+
+            font-size: 10px;
+        }
+
+        .counter {
+            color: #656b75;
+
+            font-size: 10px;
+        }
+
+
+        /* CARDS */
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card {
+            background: #11141a;
+
+            border: 1px solid #262a32;
+
+            border-radius: 10px;
+
+            padding: 17px;
+        }
+
+        .card:hover {
+            border-color: #353a44;
+        }
+
+        .card-top {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: flex-start;
+
+            gap: 15px;
+        }
+
+        .card-label {
+            color: #5e646e;
+
+            font-size: 8px;
+            font-weight: bold;
+
+            letter-spacing: 1.2px;
+
+            margin-bottom: 6px;
+        }
+
+        .card h3 {
+            margin: 0;
+
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .formation {
+            background: #191c22;
+
+            border: 1px solid #343943;
+
+            border-radius: 6px;
+
+            padding: 6px 9px;
+
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+
+        /* INFORMATION */
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 8px;
+
+            margin-top: 17px;
+        }
+
+        .info {
+            background: #15181e;
+
+            border: 1px solid #252a32;
+
+            border-radius: 7px;
+
+            padding: 10px;
+
+            min-height: 58px;
+        }
+
+        .info-label {
+            display: block;
+
+            color: #5f6570;
+
+            font-size: 8px;
+
+            text-transform: uppercase;
+
+            letter-spacing: .8px;
+
+            margin-bottom: 6px;
+        }
+
+        .info-value {
+            color: #d8dae0;
+
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 4px;
+        }
+
+        .tag {
+            background: #1b1e25;
+
+            border: 1px solid #2c313a;
+
+            border-radius: 5px;
+
+            padding: 4px 6px;
+
+            color: #c6c9cf;
+
+            font-size: 9px;
+        }
+
+
+        /* BUTTONS */
+
+        .card-actions {
+            display: flex;
+
+            justify-content: flex-end;
+
+            gap: 5px;
+
+            margin-top: 13px;
+        }
+
+        .card-btn {
+            background: transparent;
+
+            border: 1px solid #292e36;
+
+            color: #888e98;
+
+            border-radius: 6px;
+
+            padding: 7px 10px;
+
+            font-size: 9px;
+        }
+
+        .card-btn:hover {
+            background: #181b21;
+            color: #fff;
+        }
+
+        .card-btn.delete:hover {
+            background: #28181c;
+
+            border-color: #4b2a31;
+
+            color: #e29aa3;
+        }
+
+
+        /* EMPTY */
+
+        .empty {
+            text-align: center;
+
+            padding: 55px 20px;
+
+            border: 1px dashed #292e36;
+
+            border-radius: 10px;
+        }
+
+        .empty-icon {
+            width: 38px;
+            height: 38px;
+
+            margin: 0 auto 12px;
+
+            border: 1px solid #30353e;
+
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #858b95;
+
+            font-size: 18px;
+        }
+
+        .empty h3 {
+            margin: 0;
+
+            font-size: 13px;
+        }
+
+        .empty p {
+            margin: 6px 0 0;
+
+            color: #626872;
+
+            font-size: 10px;
+        }
+
+        .empty button {
+            margin-top: 15px;
+
+            background: #191c22;
+
+            border: 1px solid #343943;
+
+            color: #eee;
+
+            border-radius: 6px;
+
+            padding: 8px 12px;
+
+            font-size: 10px;
+        }
+
+
+        /* MODAL */
+
+        .overlay {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, .75);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 18px;
+
+            z-index: 100;
+
+            backdrop-filter: blur(5px);
+        }
+
+        .overlay.hidden {
+            display: none;
+        }
+
+        .modal {
+            width: 100%;
+            max-width: 450px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: #11141a;
+
+            border: 1px solid #2a2f37;
+
+            border-radius: 12px;
+
+            padding: 22px;
+        }
+
+        .modal-top {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: flex-start;
+
+            margin-bottom: 22px;
+        }
+
+        .modal h2 {
+            margin: 0;
+
+            font-size: 19px;
+        }
+
+        .close {
+            border: 0;
+
+            background: transparent;
+
+            color: #858b95;
+
+            font-size: 23px;
+        }
+
+        .close:hover {
+            color: white;
+        }
+
+
+        /* FORM */
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+
+            color: #aeb2ba;
+
+            font-size: 10px;
+
+            margin-bottom: 6px;
+        }
+
+        input,
+        select {
+            width: 100%;
+
+            height: 40px;
+
+            background: #0b0d11;
+
+            border: 1px solid #292e36;
+
+            border-radius: 7px;
+
+            color: #eee;
+
+            padding: 0 10px;
+
+            outline: none;
+
+            font-size: 11px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #4a505b;
+        }
+
+        input::placeholder {
+            color: #505660;
+        }
+
+        .hint {
+            display: block;
+
+            color: #5f6570;
+
+            font-size: 8px;
+
+            margin-top: 5px;
+        }
+
+        .teammate-title {
+            color: #aeb2ba;
+
+            font-size: 10px;
+
+            margin-bottom: 8px;
+        }
+
+        .teammate-input {
+            margin-bottom: 7px;
+        }
+
+        .save {
+            width: 100%;
+
+            height: 41px;
+
+            margin-top: 5px;
+
+            background: #e2e4e8;
+
+            border: 0;
+
+            border-radius: 7px;
+
+            color: #0b0d11;
+
+            font-size: 11px;
+
+            font-weight: bold;
+        }
+
+        .save:hover {
+            background: #fff;
+        }
+
+
+        /* CONFIRM DELETE */
+
+        .confirm {
+            width: 100%;
+            max-width: 380px;
+
+            background: #11141a;
+
+            border: 1px solid #30353e;
+
+            border-radius: 12px;
+
+            padding: 23px;
+        }
+
+        .confirm-icon {
+            width: 38px;
+            height: 38px;
+
+            margin-bottom: 15px;
+
+            border: 1px solid #363b45;
+
+            border-radius: 9px;
+
+            background: #191c22;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: #b9bdc5;
+
+            font-weight: bold;
+        }
+
+        .confirm h2 {
+            margin: 0;
+
+            font-size: 17px;
+        }
+
+        .confirm p {
+            color: #7c828c;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+
+            margin: 7px 0 0;
+        }
+
+        .confirm-actions {
+            display: flex;
+
+            justify-content: flex-end;
+
+            gap: 6px;
+
+            margin-top: 22px;
+        }
+
+        .cancel,
+        .confirm-delete {
+            border-radius: 7px;
+
+            padding: 9px 13px;
+
+            font-size: 10px;
+        }
+
+        .cancel {
+            background: transparent;
+
+            border: 1px solid #2b3038;
+
+            color: #858b95;
+        }
+
+        .cancel:hover {
+            background: #191c22;
+            color: white;
+        }
+
+        .confirm-delete {
+            background: #321b20;
+
+            border: 1px solid #553039;
+
+            color: #e19aa3;
+        }
+
+        .confirm-delete:hover {
+            background: #432128;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                padding: 0 14px;
+            }
+
+            .logo-sub {
+                display: none;
+            }
+
+            main {
+                padding: 28px 14px 50px;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            .add-btn {
+                width: 100%;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 7px;
+            }
+
+            .card-actions {
+                justify-content: stretch;
+            }
+
+            .card-btn {
+                flex: 1;
+            }
+
+            .modal {
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-box">
+                T
+            </div>
+
+            <div>
+
+                <div class="logo-text">
+                    Tournament Hub
+                </div>
+
+                <div class="logo-sub">
+                    Personal tournament manager
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main>
+
+        <section>
+
+            <div class="hero">
+
+                <div>
+
+                    <div class="small-title">
+                        TOURNAMENTS
+                    </div>
+
+                    <h1>
+                        Stay organized.
+                    </h1>
+
+                    <p>
+                        Keep your registered tournaments in one place.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="addButton"
+                    class="add-btn"
+                >
+                    + Add Tournament
+                </button>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            My Tournaments
+                        </h2>
+
+                        <p>
+                            Your upcoming tournament registrations.
+                        </p>
+
+                    </div>
+
+                    <span
+                        id="tournamentCounter"
+                        class="counter"
+                    >
+                        0 tournaments
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="tournamentList"
+                    class="list"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ADD / EDIT MODAL -->
+
+    <div
+        id="formOverlay"
+        class="overlay hidden"
+    >
+
+        <div class="modal">
+
+            <div class="modal-top">
+
+                <div>
+
+                    <div class="small-title">
+                        TOURNAMENT
+                    </div>
+
+                    <h2 id="formTitle">
+                        Add Tournament
+                    </h2>
+
+                </div>
+
+
+                <button
+                    id="closeForm"
+                    class="close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="tournamentForm">
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Tournament Name
+                    </label>
+
+                    <input
+                        id="nameInput"
+                        type="text"
+                        placeholder="KRAKEN Weekly Tour"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- SERVER -->
+
+                <div class="form-group">
+
+                    <label>
+                        Server Name
+                    </label>
+
+                    <input
+                        id="serverInput"
+                        type="text"
+                        placeholder="KRAKEN Clan"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- FORMATION -->
+
+                <div class="form-group">
+
+                    <label>
+                        Formation
+                    </label>
+
+                    <select
+                        id="formationInput"
+                        required
+                    >
+
+                        <option value="">
+                            Select formation
+                        </option>
+
+                        <option value="1v1">
+                            1v1
+                        </option>
+
+                        <option value="2v2">
+                            2v2
+                        </option>
+
+                        <option value="3v3">
+                            3v3
+                        </option>
+
+                        <option value="4v4">
+                            4v4
+                        </option>
+
+                        <option value="5v5">
+                            5v5
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TITLE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Title Requirement
+                    </label>
+
+                    <input
+                        id="titleInput"
+                        type="text"
+                        placeholder="3legend/2hero"
+                        required
+                    >
+
+                    <span class="hint">
+                        Type the requirement manually.
+                    </span>
+
+                </div>
+
+
+                <!-- TEAMMATES -->
+
+                <div id="teammates"></div>
+
+
+                <button
+                    type="submit"
+                    class="save"
+                >
+                    Save Tournament
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- DELETE CONFIRMATION -->
+
+    <div
+        id="confirmOverlay"
+        class="overlay hidden"
+    >
+
+        <div class="confirm">
+
+            <div class="confirm-icon">
+                !
+            </div>
+
+            <h2>
+                Delete Tournament?
+            </h2>
+
+            <p id="confirmMessage">
+                This tournament will be permanently deleted.
+            </p>
+
+
+            <div class="confirm-actions">
+
+                <button
+                    id="cancelConfirm"
+                    class="cancel"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    id="confirmDelete"
+                    class="confirm-delete"
+                >
+                    Delete
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
