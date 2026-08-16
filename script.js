@@ -61,6 +61,63 @@ const confirmDelete =
 
 
 /* ================================
+   BRACKET CALCULATOR
+================================ */
+
+const roundCalcButton =
+    document.getElementById("roundCalcButton");
+
+const roundCalc =
+    document.getElementById("roundCalc");
+
+const teamCountInput =
+    document.getElementById("teamCountInput");
+
+const roundResult =
+    document.getElementById("roundResult");
+
+
+roundCalcButton.onclick =
+function () {
+
+    roundCalc.classList.toggle("hidden");
+
+};
+
+
+teamCountInput.oninput =
+function () {
+
+    const teams =
+        parseInt(
+            teamCountInput.value,
+            10
+        );
+
+
+    if (
+        !Number.isInteger(teams) ||
+        teams < 2
+    ) {
+
+        roundResult.textContent =
+            "—";
+
+        return;
+
+    }
+
+
+    roundResult.textContent =
+        Math.ceil(
+            Math.log2(teams)
+        );
+
+};
+
+
+
+/* ================================
    LOAD
 ================================ */
 
@@ -785,6 +842,7 @@ function escapeHTML(value) {
 loadTournaments();
 
 renderTournaments();
+
 
 /* ================================
    APP / OFFLINE SUPPORT
