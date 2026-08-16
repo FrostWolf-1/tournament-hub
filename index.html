@@ -20,7 +20,7 @@
         href="manifest.json"
     >
 
-    <title>Tournament Hub</title>
+    <title>tournament</title>
 
     <style>
 
@@ -707,6 +707,71 @@
         }
 
 
+
+        /* SMALL BRACKET CALCULATOR */
+
+        .round-calc-button {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            width: 42px;
+            height: 42px;
+            border: 1px solid #353a44;
+            border-radius: 9px;
+            background: #15181e;
+            color: #d8dae0;
+            font-size: 16px;
+            font-weight: bold;
+            z-index: 20;
+        }
+
+        .round-calc-button:hover {
+            background: #20242b;
+        }
+
+        .round-calc {
+            position: fixed;
+            right: 16px;
+            bottom: 66px;
+            width: 190px;
+            background: #11141a;
+            border: 1px solid #2a2f37;
+            border-radius: 10px;
+            padding: 14px;
+            z-index: 30;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+        }
+
+        .round-calc.hidden {
+            display: none;
+        }
+
+        .round-calc-title {
+            color: #f1f2f4;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 9px;
+        }
+
+        .round-calc input {
+            height: 36px;
+            font-size: 11px;
+        }
+
+        .round-calc-result {
+            margin-top: 9px;
+            text-align: center;
+            color: #858b95;
+            font-size: 9px;
+        }
+
+        .round-calc-result strong {
+            display: block;
+            margin-top: 2px;
+            color: #f1f2f4;
+            font-size: 20px;
+        }
+
         /* MOBILE */
 
         @media (max-width: 700px) {
@@ -781,11 +846,11 @@
             <div>
 
                 <div class="logo-text">
-                    Tournament Hub
+                    tournament
                 </div>
 
                 <div class="logo-sub">
-                    Personal tournament manager
+                    
                 </div>
 
             </div>
@@ -807,15 +872,15 @@
                 <div>
 
                     <div class="small-title">
-                        TOURNAMENTS
+                        
                     </div>
 
                     <h1>
-                        Stay organized.
+                        
                     </h1>
 
                     <p>
-                        Keep your registered tournaments in one place.
+                        
                     </p>
 
                 </div>
@@ -838,11 +903,11 @@
                     <div>
 
                         <h2>
-                            My Tournaments
+                            
                         </h2>
 
                         <p>
-                            Your upcoming tournament registrations.
+                            
                         </p>
 
                     </div>
@@ -888,7 +953,7 @@
                     </div>
 
                     <h2 id="formTitle">
-                        Add Tournament
+                        
                     </h2>
 
                 </div>
@@ -918,7 +983,7 @@
                     <input
                         id="nameInput"
                         type="text"
-                        placeholder="KRAKEN Weekly Tour"
+                        placeholder="......."
                         required
                     >
 
@@ -936,7 +1001,7 @@
                     <input
                         id="serverInput"
                         type="text"
-                        placeholder="KRAKEN Clan"
+                        placeholder="......."
                         required
                     >
 
@@ -996,7 +1061,7 @@
                     <input
                         id="titleInput"
                         type="text"
-                        placeholder="3legend/2hero"
+                        placeholder="......."
                         required
                     >
 
@@ -1072,6 +1137,26 @@
     </div>
 
 
+
+
+    <!-- SMALL BRACKET CALCULATOR -->
+
+    <button id="roundCalcButton" class="round-calc-button"
+        title="Bracket Calculator" aria-label="Bracket Calculator">#</button>
+
+    <div id="roundCalc" class="round-calc hidden">
+
+        <div class="round-calc-title">Bracket Rounds</div>
+
+        <input id="teamCountInput" type="number" min="2"
+            step="1" placeholder="Teams" inputmode="numeric">
+
+        <div class="round-calc-result">
+            Rounds needed
+            <strong id="roundResult">—</strong>
+        </div>
+
+    </div>
 
     <script src="script.js"></script>
 
